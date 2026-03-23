@@ -3,19 +3,18 @@
 #include "includes/clay.h"
 #include "includes/clay_renderer_raylib.c"
 
+#include "garden.h"
+
 #include <stdio.h>
 
 // GLOBALS -----------------------------------------------------------------------------------------
-const int FONT_ID_BODY = 0;
-const int FONT_ID_MONO = 1;
-const int FONT_SIZE_BODY = 18;
-
-const Clay_Color COLOUR_WHITE          = { 245, 245, 245, 255 };
-const Clay_Color COLOUR_BLACK          = { 15, 15, 15, 255 };
 const Clay_Color COLOUR_BACKGROUND     = { 36, 36, 36, 255 };
-const Clay_Color COLOUR_PANEL          = { 56, 56, 56, 255 };
 
 // MAIN LAYOUT -------------------------------------------------------------------------------------
+void test_callback() {
+    printf("hello!");
+}
+
 Clay_RenderCommandArray layoutMain() {
     Clay_BeginLayout(); // BEGIN LAYOUT
 
@@ -27,10 +26,11 @@ Clay_RenderCommandArray layoutMain() {
                 .width = CLAY_SIZING_GROW(),
                 .height = CLAY_SIZING_GROW()
             },
+            .padding = { 8, 8, 8, 8 },
             .childGap = 8
         }
     }) {
-
+        gBUTTON("test", test_callback);
     }
 
     // END LAYOUT

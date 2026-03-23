@@ -20,6 +20,7 @@ FetchContent_MakeAvailable(raylib)
 
 add_executable(clay-garden 
     main.c
+    garden.c
 )
 
 target_compile_options(clay-garden PUBLIC)
